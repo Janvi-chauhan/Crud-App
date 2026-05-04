@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API = "http://localhost:5000/students";
+// use env variable (Vite)
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000/students";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -53,7 +54,6 @@ function App() {
     <div style={{ padding: "30px", maxWidth: "800px", margin: "auto" }}>
       <h2 style={{ textAlign: "center" }}>Student CRUD App</h2>
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit}
         style={{
@@ -89,7 +89,6 @@ function App() {
         </button>
       </form>
 
-      {/* Table */}
       <table
         border="1"
         cellPadding="10"
